@@ -58,6 +58,18 @@ function playRound (humanChoice, computerChoice) {
     }
 }
 
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const playerSelection = button.id;
+        
+        playRound(playerSelection);
+    })
+})
+
+const resultsDiv = document.querySelector("#results");
+resultsDiv.textContent = `Player: ${humanScore}, 
+                          CPU: ${computerScore}.`
 
 
 console.log("Final score:");
