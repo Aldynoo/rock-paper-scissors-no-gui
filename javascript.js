@@ -62,6 +62,14 @@ function playRound (humanChoice, computerChoice) {
 playRound(humanChoice, computerChoice);
 }*/
 
+let buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const playerSelection = button.id;
+        playRound(playerSelection); 
+    });
+});
+
 console.log("Final score:");
 console.log("Player: ", humanScore);
 console.log("CPU: ", computerScore);
