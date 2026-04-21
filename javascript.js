@@ -58,11 +58,7 @@ function playRound (humanChoice, computerChoice) {
     }
 }
 
-for (let i = 0; i < 5; i++) {
-    const humanChoice = getHumanChoice();
-    const computerChoice = getComputerChoice();
-playRound(humanChoice, computerChoice);
-}
+
 
 console.log("Final score:");
 console.log("Player: ", humanScore);
