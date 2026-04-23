@@ -10,18 +10,18 @@ function getComputerChoice () {
             return "scissors"
         }
 }
-//console.log(getComputerChoice());
-
 
 function getHumanChoice() {
     let myChoice = prompt('Enter "Rock", "Paper" or "Scissors"')
     return myChoice.toLowerCase();
 }
-//console.log(getHumanChoice());
 
 function playGame() {
 let humanScore = 0;
 let computerScore = 0;
+
+let resultsDiv = document.querySelector("#results");
+resultsDiv.style.whiteSpace = "pre-line";
 
 function playRound (humanChoice, computerChoice) {
     humanChoice = humanChoice.toLowerCase();
@@ -61,28 +61,22 @@ function playRound (humanChoice, computerChoice) {
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
+        if (humanScore === 5 || computerScore === 5) return;
         const playerSelection = button.id;
+        const computerSelection = getComputerChoice();
         
-        playRound(playerSelection);
+        playRound(playerSelection, computerSelection);
+        resultsDiv.textContent = `Player: ${humanScore}, CPU: ${computerScore}.`;
+
+        if (humanScore === 5 || computerScore === 5) {
+            if (humanScore > computerScore) {
+                resultsDiv.textContent += `\nYou win the game!`;
+            } else {
+                resultsDiv.textContent += `\nYou lose the game!`;
+            }
+        }
     })
 })
-
-const resultsDiv = document.querySelector("#results");
-resultsDiv.textContent = `Player: ${humanScore}, 
-                          CPU: ${computerScore}.`
-
-
-console.log("Final score:");
-console.log("Player: ", humanScore);
-console.log("CPU: ", computerScore);
-
-if (humanScore > computerScore) {
-    console.log("You win this game!");
-} 
-else if (humanScore < computerScore) {
-    console.log("You lose the game!")
-} 
-else {console.log("This game it's a tie!");}
 }
 playGame();
 
