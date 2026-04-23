@@ -13,3 +13,4 @@ Simple **Rock Paper Scissors** game played in the browser console against the co
 * **prompt()** for user input
 * Loops (**for**)
 * Keeping score
+* EventLogging and **DOM Manimulation**
